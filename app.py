@@ -17,7 +17,7 @@ def store_file():
     if not file_name:
         return jsonify({"file": None, "error": "Invalid JSON input."}), 400
 
-    file_path = f"/Alex_PV_dir/{file_name}"  # Replace "Alex" with your first name
+    file_path = f"/Niv_PV_dir/{file_name}"
 
     try:
         with open(file_path, 'w') as f:
