@@ -18,7 +18,7 @@ def store_file():
         return jsonify({"file": None, "error": "Invalid JSON input."}), 400
 
     # Remove spaces after commas in the file data
-    formatted_data = '\n'.join(line.replace(', ', ',') for line in file_data.splitlines())
+    formatted_data = '\n'.join(line.replace(', ', ',').strip() for line in file_data.splitlines())
 
     file_path = f"/Niv_PV_dir/{file_name}"
 
