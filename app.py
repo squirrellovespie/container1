@@ -17,11 +17,14 @@ def store_file():
     if not file_name:
         return jsonify({"file": None, "error": "Invalid JSON input."}), 400
 
+    # Remove spaces after commas in the file data
+    formatted_data = '\n'.join(line.replace(', ', ',') for line in file_data.splitlines())
+
     file_path = f"/Niv_PV_dir/{file_name}"
 
     try:
         with open(file_path, 'w') as f:
-            f.write(file_data)
+            f.write(formatted_data)
         return jsonify({"file": file_name, "message": "Success."}), 200
     except Exception:
         return jsonify({"file": file_name, "error": "Error while storing the file to the storage."}), 500
