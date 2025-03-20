@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/store-file', methods=['POST'])
 def store_file():
+    # app.logger.info("Processing store-file request")
     data = request.get_json()
     
     if not data or 'file' not in data or 'data' not in data:
